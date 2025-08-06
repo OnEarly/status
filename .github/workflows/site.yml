@@ -1,0 +1,67 @@
+#
+# ===============================
+# OVERRIDDEN BY ONEARLY
+# ===============================
+#
+# This workflow has been overridden at OnEarly to avoid automatic Upptime template updates
+# and to support GitHub App authentication instead of Personal Access Tokens.
+# 
+# Original Upptime template updates are disabled for controlled updates and better security.
+#
+# 🔼 Upptime @v1.40.1 (modified)
+# GitHub-powered open-source uptime monitor and status page by Anand Chowdhary
+
+# * Source: https://github.com/upptime/upptime
+# * Docs and more: https://upptime.js.org
+# * More by Anand Chowdhary: https://anandchowdhary.com
+
+
+name: Static Site CI
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  repository_dispatch:
+    types: [static_site]
+  workflow_dispatch:
+jobs:
+  release:
+    name: Build and deploy site
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: 🎫 Generate Github App token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.OE_STATUS_BOT_APP_ID }}
+          private-key: ${{ secrets.OE_STATUS_BOT_APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Generate custom status site with assets
+        run: |
+          mkdir -p site
+          cd site
+          npm init -y
+          npm install @upptime/status-page --no-audit --no-fund --loglevel=error
+          cp -r node_modules/@upptime/status-page/* .
+          rsync -a ../assets/ static/
+          npm install --no-audit --no-fund --loglevel=error
+          npm run export
+          mkdir -p status-page/__sapper__/export
+          cp -r __sapper__/export/* status-page/__sapper__/export
+        shell: bash
+
+      - uses: peaceiris/actions-gh-pages@v4
+        name: GitHub Pages Deploy
+        with:
+          github_token: ${{ steps.generate-token.outputs.token }}
+          publish_dir: "site/status-page/__sapper__/export/"
+          force_orphan: "false"
+          user_name: "onearly-status-bot[bot]"
+          user_email: "224897701+onearly-status-bot[bot]@users.noreply.github.com"
+

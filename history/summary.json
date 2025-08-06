@@ -1,0 +1,38 @@
+[
+  {
+    "name": "OnEarly App Staging",
+    "url": "https://staging.onearly.com",
+    "icon": "https://icons.duckduckgo.com/ip3/staging.onearly.com.ico",
+    "slug": "on-early-app-staging",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 679,
+    "timeDay": 679,
+    "timeWeek": 679,
+    "timeMonth": 679,
+    "timeYear": 679,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "OnEarly API AU Staging",
+    "url": "https://api.au.staging.onearly.com/health",
+    "icon": "https://icons.duckduckgo.com/ip3/api.au.staging.onearly.com.ico",
+    "slug": "on-early-api-au-staging",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 692,
+    "timeDay": 692,
+    "timeWeek": 692,
+    "timeMonth": 692,
+    "timeYear": 692,
+    "dailyMinutesDown": {}
+  }
+]

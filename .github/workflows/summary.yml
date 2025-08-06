@@ -1,0 +1,49 @@
+#
+# ===============================
+# OVERRIDDEN BY ONEARLY
+# ===============================
+#
+# This workflow has been overridden at OnEarly to avoid automatic Upptime template updates
+# and to support GitHub App authentication instead of Personal Access Tokens.
+# 
+# Original Upptime template updates are disabled for controlled updates and better security.
+#
+# 🔼 Upptime @v1.40.1 (modified)
+# GitHub-powered open-source uptime monitor and status page by Anand Chowdhary
+
+# * Source: https://github.com/upptime/upptime
+# * Docs and more: https://upptime.js.org
+# * More by Anand Chowdhary: https://anandchowdhary.com
+
+
+name: Summary CI
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  repository_dispatch:
+    types: [summary]
+  workflow_dispatch:
+jobs:
+  release:
+    name: Generate README
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🎫 Generate Github App token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.OE_STATUS_BOT_APP_ID }}
+          private-key: ${{ secrets.OE_STATUS_BOT_APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Update summary in README
+        uses: upptime/uptime-monitor@v1.40.1
+        with:
+          command: "readme"
+        env:
+          GH_PAT: ${{ steps.generate-token.outputs.token }}
