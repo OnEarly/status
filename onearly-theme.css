@@ -1,0 +1,142 @@
+
+a.logo > div:last-child {
+  display: none !important;
+}
+
+:root {
+  --body-background-color: #FFFFFF;
+  --body-text-color: #18181B;
+  --card-background-color: #FAFAFA;
+  --nav-background-color: #EFE3DF;
+  --nav-border-bottom-color: #D4D4D4;
+  --nav-current-border-bottom-color: #2F52E0;
+  --card-border-color: #E5E7EB;
+  --down-border-left-color: #EF4444;
+  --down-background-color: #FEE2E2;
+  --degraded-border-left-color: #F59E0B;
+  --up-border-left-color: #10B981;
+  --tag-color: #FAFAFA;
+  --tag-up-background-color: #10B981;
+  --tag-down-background-color: #EF4444;
+  --tag-degraded-background-color: #F59E0B;
+  --change-background-color: #F59E0B;
+  --error-button-border-color: #2F52E0;
+  --error-button-background-color: #2F52E0;
+  --error-button-color: #FFFFFF;
+  --submit-button-border-color: #2F52E0;
+  --submit-button-background-color: #2F52E0;
+  --submit-button-color: #FFFFFF;
+  --graph-opacity: 1;
+  --graph-filter: none;
+}
+
+[data-theme="dark"] {
+  --body-background-color: #18181B;
+  --body-text-color: #FFFFFF;
+  --card-background-color: #0D0D0D;
+  --nav-background-color: #000000;
+  --nav-border-bottom-color: #404040;
+  --nav-current-border-bottom-color: #B5BFFE;
+  --card-border-color: #404040;
+  --down-border-left-color: #EF4444;
+  --down-background-color: #450A0A;
+  --degraded-border-left-color: #F59E0B;
+  --up-border-left-color: #10B981;
+  --tag-color: #0D0D0D;
+  --tag-up-background-color: #10B981;
+  --tag-down-background-color: #EF4444;
+  --tag-degraded-background-color: #F59E0B;
+  --change-background-color: #F59E0B;
+  --error-button-border-color: #B5BFFE;
+  --error-button-background-color: #B5BFFE;
+  --error-button-color: #18181B;
+  --submit-button-border-color: #B5BFFE;
+  --submit-button-background-color: #B5BFFE;
+  --submit-button-color: #18181B;
+} 
+
+.theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.2s ease;
+  color: inherit;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  opacity: 0.8;
+}
+
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle .light-icon,
+.theme-toggle .dark-icon {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .light-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .dark-icon {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  nav.svelte-a08hsz ul {
+    display: none !important;
+  }
+}
+
+.logo img {
+  content: url('/status/logomark-light.svg');
+}
+
+[data-theme="dark"] .logo img {
+  content: url('/status/logomark-dark.svg');
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-toggle {
+  order: 1;
+}
+
+nav.svelte-a08hsz {
+  order: 2;
+  width: 100%;
+}
+
+main.container {
+  order: 3;
+  width: 100%;
+}
+
+.custom-footer {
+  order: 4;
+  width: 100%;
+}
+
+footer.svelte-jbr799:not(.custom-footer) {
+  display: none !important;
+}
+
+
