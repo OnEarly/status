@@ -20,10 +20,11 @@ sites:
 
 status-website:
   name: OnEarly Status
-  baseUrl: /status
-  logoUrl: /status/logomark-light.svg
-  favicon: /status/favicon.png
-  themeUrl: /status/onearly-theme.css
+  cname: status.onearly.com
+  # baseUrl: /status
+  logoUrl: /logomark-light.svg
+  favicon: /favicon.png
+  themeUrl: /onearly-theme.css
   introTitle: System Status
   navbar:
     - title: App
