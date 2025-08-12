@@ -6,13 +6,12 @@ commitMessages:
   commitAuthorEmail: "224897701+onearly-status-bot[bot]@users.noreply.github.com"
 
 sites:
-  # To configure on launch
-  # - name: OnEarly App
-  #   url: https://onearly.com
-  # - name: OnEarly API AU
-  #   url: https://api.au.onearly.com/health
-  # - name: OnEarly Docs
-  #   url: https://docs.onearly.com
+  - name: OnEarly App
+    url: https://onearly.com
+  - name: OnEarly API AU
+    url: https://api.au.onearly.com/health
+  - name: OnEarly Docs
+    url: https://docs.onearly.com
   - name: OnEarly App Staging
     url: https://staging.onearly.com
   - name: OnEarly API AU Staging
