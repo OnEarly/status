@@ -5,18 +5,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/onearly.com.ico",
     "slug": "on-early-app",
     "status": "down",
-    "uptime": "5.56%",
-    "uptimeDay": "5.56%",
-    "uptimeWeek": "5.56%",
-    "uptimeMonth": "5.56%",
-    "uptimeYear": "5.56%",
+    "uptime": "0.03%",
+    "uptimeDay": "0.03%",
+    "uptimeWeek": "0.03%",
+    "uptimeMonth": "0.03%",
+    "uptimeYear": "0.03%",
     "time": 194,
     "timeDay": 194,
     "timeWeek": 194,
     "timeMonth": 194,
     "timeYear": 194,
     "dailyMinutesDown": {
-      "2025-08-12": 0
+      "2025-08-12": 18
     }
   },
   {
@@ -25,18 +25,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.au.onearly.com.ico",
     "slug": "on-early-api-au",
     "status": "down",
-    "uptime": "0.97%",
-    "uptimeDay": "0.97%",
-    "uptimeWeek": "0.97%",
-    "uptimeMonth": "0.97%",
-    "uptimeYear": "0.97%",
+    "uptime": "0.44%",
+    "uptimeDay": "0.44%",
+    "uptimeWeek": "0.44%",
+    "uptimeMonth": "0.44%",
+    "uptimeYear": "0.44%",
     "time": 550,
     "timeDay": 550,
     "timeWeek": 550,
     "timeMonth": 550,
     "timeYear": 550,
     "dailyMinutesDown": {
-      "2025-08-12": 0
+      "2025-08-12": 18
     }
   },
   {
