@@ -74,7 +74,7 @@
     "timeMonth": 149,
     "timeYear": 211,
     "dailyMinutesDown": {
-      "2025-10-24": 735,
+      "2025-10-24": 771,
       "2025-10-23": 1440,
       "2025-10-22": 1440,
       "2025-10-21": 1440,
@@ -155,19 +155,19 @@
     "url": "https://api.au.staging.onearly.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/api.au.staging.onearly.com.ico",
     "slug": "on-early-api-au-staging",
-    "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "status": "up",
+    "uptime": "99.97%",
+    "uptimeDay": "97.55%",
+    "uptimeWeek": "99.65%",
+    "uptimeMonth": "99.92%",
+    "uptimeYear": "99.97%",
     "time": 725,
-    "timeDay": 744,
+    "timeDay": 724,
     "timeWeek": 686,
     "timeMonth": 660,
     "timeYear": 725,
     "dailyMinutesDown": {
-      "2025-10-24": 0
+      "2025-10-24": 35
     }
   }
 ]
