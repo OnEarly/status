@@ -1,7 +1,7 @@
 url: https://api.au.onearly.com/health
-status: up
-code: 200
-responseTime: 637
-lastUpdated: 2025-10-30T23:07:37.549Z
+status: down
+code: 503
+responseTime: 556
+lastUpdated: 2025-10-31T06:26:21.381Z
 startTime: 2025-08-12T04:38:17.444Z
 generator: Upptime <https://github.com/upptime/upptime>
