@@ -1,36 +1,322 @@
-<!DOCTYPE html> <html lang=en> <head> <meta charset=utf-8> <meta content="width=device-width,initial-scale=1" name=viewport> <meta content=#333333 name=theme-color> <base href=/ > <link href=manifest.json rel=manifest crossorigin=use-credentials> <script>__SAPPER__={baseUrl:"",preloaded:[void 0,{}]};if('serviceWorker' in navigator)navigator.serviceWorker.register('/service-worker.js');(function(){try{eval("async function x(){}");var main="/client/client.1ae97b5c.js"}catch(e){main="/client/legacy/client.dce70a3c.js"};var s=document.createElement("script");try{new Function("if(0)import('')")();s.src=main;s.type="module";s.crossOrigin="use-credentials";}catch(e){s.src="/client/shimport@2.0.5.js";s.setAttribute("data-main",main);}document.head.appendChild(s);}());</script> <link href=client/client-31a52aa5.css rel=stylesheet><link href=client/createOctokit-a85f76c7.css rel=stylesheet><link href=client/index-b0b6455a.css rel=stylesheet> <title>OnEarly Status</title><link href=/onearly-theme.css rel=stylesheet><link href=https://status.onearly.com/global.css rel=stylesheet><link href=/favicon.png rel=icon type=image/svg><link href=/favicon.png rel=icon type=image/png><script>function toggleTheme() {
-  const html = document.documentElement;
-  const currentTheme = html.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  
-  html.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-}
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnEarly Status</title>
+<meta name="description" content="Service status and incident notices for OnEarly.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png">
+<meta property="og:title" content="OnEarly Status">
+<meta property="og:description" content="Service status and incident notices for OnEarly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://status.onearly.com/">
 
-function initTheme() {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-}
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --text: #18181B;
+    --muted: #6B7280;
+    --card: #FAFAFA;
+    --border: #E5E7EB;
+    --accent: #2F52E0;
+    --sand: #EFE3DF;
+    --dot: #2F52E0;
+    --dot-glow: rgba(47, 82, 224, 0.18);
+    --logo-light: block;
+    --logo-dark: none;
+  }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initTheme);
-} else {
-  initTheme();
-} </script> <link href=/client/client.1ae97b5c.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/client-31a52aa5.css rel=preload as=style><link href=/client/index.7a074cd6.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/createOctokit.85beba22.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/inject_styles.803b7e80.js rel=modulepreload as=script crossorigin=use-credentials><link href=/client/createOctokit-a85f76c7.css rel=preload as=style><link href=/client/index-b0b6455a.css rel=preload as=style></head> <body> <div id=sapper> <button aria-label="Switch between dark and light mode" class=theme-toggle onclick=toggleTheme() title="Toggle theme"> <svg class=light-icon aria-hidden=true viewBox="0 0 24 24"> <path d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z" fill=currentColor></path> </svg> <svg class=dark-icon aria-hidden=true viewBox="0 0 24 24"> <path d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z" fill=currentColor></path> </svg> </button> <footer class="svelte-jbr799 custom-footer"> <p>For support, please contact us at <a href=mailto:support@onearly.com>support@onearly.com</a>.</p> </footer> <nav class=svelte-a08hsz><div class="svelte-a08hsz container"><div><a href=https://status.onearly.com class="svelte-a08hsz logo"><img alt="" class=svelte-a08hsz src=/logomark-light.svg> <div>OnEarly Status</div></a></div> <ul class=svelte-a08hsz><li><a href=https://onearly.com class=svelte-a08hsz target=_self>App</a> <li><a href=https://docs.onearly.com class=svelte-a08hsz target=_self>Docs</a> </li> </ul></div> </nav> <main class=container> <header class=svelte-ngkazm><h1>System Status</h1> </header> <section class=svelte-8lnl4f><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <section class=svelte-8lnl4f><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <div class="svelte-fqsq6s f changed"><h2>Live Status</h2> <form class="svelte-fqsq6s f r"><div><input class=svelte-fqsq6s id=data_day name=d type=radio value=day><label class=svelte-fqsq6s for=data_day>24h</label></div> <div><input class=svelte-fqsq6s id=data_week name=d type=radio value=week checked><label class=svelte-fqsq6s for=data_week>7d</label></div> <div><input class=svelte-fqsq6s id=data_month name=d type=radio value=month><label class=svelte-fqsq6s for=data_month>30d</label></div> <div><input class=svelte-fqsq6s id=data_year name=d type=radio value=year><label class=svelte-fqsq6s for=data_year>1y</label></div> <div><input class=svelte-fqsq6s id=data_all name=d type=radio value=all><label class=svelte-fqsq6s for=data_all>all</label></div></form></div> <section class="svelte-fqsq6s live-status"><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <section><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div> </section> <section><div class="svelte-68jxue loading"><svg class=svelte-68jxue height=38 stroke=#aaa width=38 xmlns=http://www.w3.org/2000/svg><g fill=none fill-rule=evenodd><g stroke-width=2 transform="translate(1 1)"><circle cx=18 cy=18 r=18 stroke-opacity=.5></circle><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName=transform dur=1s from="0 18 18" repeatCount=indefinite to="360 18 18" type=rotate></animateTransform></path></g></g></svg></div></section></main> <footer class=svelte-jbr799><p>This page is <a href=https://github.com/OnEarly/status>open source</a>, powered by <a href=https://upptime.js.org>Upptime</a></p> </footer></div> <script> try {
-        if (typeof window !== "undefined" && window.navigator && navigator.serviceWorker) {
-          navigator.serviceWorker.getRegistrations().then(function (registrations) {
-            for (let registration of registrations) {
-              registration.unregister();
-            }
-          });
-        }
-        if (typeof window !== "undefined" && "caches" in window) {
-          caches.keys().then(function (keyList) {
-            return Promise.all(
-              keyList.map(function (key) {
-                return caches.delete(key);
-              })
-            );
-          });
-        }
-      } catch (error) {} </script> 
+  :root[data-theme="dark"] {
+    --bg: #18181B;
+    --text: #FFFFFF;
+    --muted: #A1A1AA;
+    --card: #0D0D0D;
+    --border: #404040;
+    --accent: #B5BFFE;
+    --sand: #000000;
+    --dot: #B5BFFE;
+    --dot-glow: rgba(181, 191, 254, 0.16);
+    --logo-light: none;
+    --logo-dark: block;
+  }
+
+  /* Incident states — set data-state on <body> to flip the banner.
+     (see the TO POST AN INCIDENT block at the bottom of this file) */
+  body[data-state="degraded"] { --dot: #F59E0B; --dot-glow: rgba(245, 158, 11, 0.20); }
+  body[data-state="down"]     { --dot: #EF4444; --dot-glow: rgba(239, 68, 68, 0.20); }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    background: var(--sand);
+  }
+
+  .bar {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo img { height: 26px; width: auto; display: block; }
+  .logo .light { display: var(--logo-light); }
+  .logo .dark  { display: var(--logo-dark); }
+
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 6px;
+    display: inline-flex;
+    line-height: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: var(--text); border-color: var(--muted); }
+  .theme-toggle svg { width: 18px; height: 18px; }
+  .theme-toggle .light-icon { display: var(--logo-dark); }
+  .theme-toggle .dark-icon  { display: var(--logo-light); }
+
+  main {
+    flex: 1;
+    max-width: 680px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 72px 24px 48px;
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+  }
+
+  .status {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .dot {
+    flex: none;
+    width: 10px;
+    height: 10px;
+    margin-top: 9px;
+    border-radius: 50%;
+    background: var(--dot);
+    box-shadow: 0 0 0 4px var(--dot-glow);
+  }
+
+  .status h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .status p { margin: 0; color: var(--muted); }
+
+  .note {
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .contact {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .contact p { margin: 0; color: var(--muted); }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  :root[data-theme="dark"] .btn { color: #18181B; }
+  .btn:hover { text-decoration: none; opacity: 0.9; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .foot {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  footer a { color: var(--muted); }
+  footer a:hover { color: var(--text); text-decoration: none; }
+
+  @media (max-width: 520px) {
+    main { padding-top: 48px; }
+    h1 { font-size: 25px; }
+  }
+</style>
+</head>
+
+<body data-state="ok">
+
+<header>
+  <div class="bar">
+    <a class="logo" href="https://onearly.com" aria-label="OnEarly">
+      <img class="light" src="/logomark-light.svg" alt="OnEarly">
+      <img class="dark"  src="/logomark-dark.svg"  alt="OnEarly">
+    </a>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Switch between dark and light mode">
+      <svg class="light-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg>
+      <svg class="dark-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <h1>System Status</h1>
+
+  <!-- ── CURRENT STATE ──────────────────────────────────────────────
+       To post an incident, see the instructions at the bottom of this file.
+       ─────────────────────────────────────────────────────────────── -->
+  <section class="status" id="state">
+    <span class="dot" aria-hidden="true"></span>
+    <div>
+      <h2>No incidents reported</h2>
+      <p>There are no known issues affecting OnEarly services right now.</p>
+    </div>
+  </section>
+
+  <p class="note">
+    This page is maintained by hand — it does not automatically monitor our services.
+    If something looks broken and nothing is posted here, we probably don&rsquo;t know
+    about it yet. Please tell us.
+  </p>
+
+  <div class="contact">
+    <h3>Having a problem?</h3>
+    <p>Get in touch and we&rsquo;ll take a look.</p>
+    <a class="btn" href="mailto:support@onearly.com">Contact support</a>
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <a href="https://onearly.com">App</a>
+    <a href="https://docs.onearly.com">Docs</a>
+    <a href="mailto:support@onearly.com">support@onearly.com</a>
+  </div>
+</footer>
+
+<script>
+  function toggleTheme() {
+    var html = document.documentElement;
+    var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  }
+
+  (function initTheme() {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (!saved) {
+      saved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', saved);
+  })();
+
+  // The previous Upptime site installed a service worker. Returning visitors would
+  // otherwise keep being served the old cached page. Evict it.
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations()
+      .then(function (rs) { rs.forEach(function (r) { r.unregister(); }); })
+      .catch(function () {});
+  }
+  if (window.caches && caches.keys) {
+    caches.keys()
+      .then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); })
+      .catch(function () {});
+  }
+</script>
+
+<!--
+════════════════════════════════════════════════════════════════════════════
+  TO POST AN INCIDENT
+════════════════════════════════════════════════════════════════════════════
+
+  1. Set the state on <body> — this colours the dot:
+         <body data-state="degraded">   amber — partial / degraded
+         <body data-state="down">       red   — major outage
+
+  2. Replace the <section class="status" id="state"> block with:
+
+         <section class="status" id="state">
+           <span class="dot" aria-hidden="true"></span>
+           <div>
+             <h2>Degraded performance</h2>
+             <p>
+               Some users may see slow responses when loading their feed.
+               We&rsquo;re investigating. <strong>Updated 14 Jul, 09:20 AEST.</strong>
+             </p>
+           </div>
+         </section>
+
+  3. Commit to the gh-pages branch. GitHub Pages redeploys automatically
+     (usually live within a minute).
+
+  When the incident is over, revert both changes back to
+  data-state="ok" and "No incidents reported".
+
+════════════════════════════════════════════════════════════════════════════
+-->
+
+</body>
+</html>
